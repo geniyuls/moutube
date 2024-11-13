@@ -1,6 +1,11 @@
 @charset "utf-8";
 
 @import "./_global";
+
+a:link, a:visited{
+  color: inherit;
+}
+
 body{
   @include minmaxWidth(100vw);
   @include minmaxHeight(100vh);
@@ -10,4 +15,77 @@ body{
   font-weight: 300;
   margin: 0;
   overflow: hidden;
+}
+
+button, input, select, textarea{
+  background-color: transparent;
+  border: none;
+  color: inherit;
+  font: inherit;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6{
+  font: inherit;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+ol, ul{
+  list-style-type: none;
+  margin-block: 0;
+  margin-inline: 0;
+  padding-inline: 0;
+}
+
+.--obj-label{
+  $text_color: #9e9e9e;
+  @include flex(column, stretch, flex-start, 0.25rem);
+
+  > ._text{
+    font-size: 0.8rem;
+  }
+}
+
+.--obj-field{
+  padding: 0.425rem 0.5rem;
+
+  &.-light{
+    $border_color: #eeeeee;
+    background-color: #ffffff;
+    border: 0.0625rem solid $border_color;
+    color: #212121;
+
+    &:hover {
+      border-color: darken($border_color, 10%);
+    }
+
+    &:focus{
+      border-color: #01cd3d;
+    }
+  }
+}
+
+.--obj-button{
+  cursor: pointer;
+  padding: 0.425rem 0.5rem;
+  transition-duration: 125ms;
+  transition-property: background-color;
+  transition-timing-function: ease;
+  user-select: none;
+
+  &.-color-primary{
+    $background_color: #01cd3d;
+    background-color: $background_color;
+    color: #ffffff;
+
+    &:hover {
+      background-color: darken($background_color, 5%);
+    }
+    &:active{
+      background-color: darken($background_color, 10%);
+    }
+  }
 }

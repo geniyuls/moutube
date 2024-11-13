@@ -1,0 +1,13 @@
+@charset "utf-8";
+
+@import "./_global";
+body{
+  @include minmaxWidth(100vw);
+  @include minmaxHeight(100vh);
+  background-color: #222324;
+  color: #d4d5d6;
+  font-size: 0.9rem;
+  font-weight: 300;
+  margin: 0;
+  overflow: hidden;
+}

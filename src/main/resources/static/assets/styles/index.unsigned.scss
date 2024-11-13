@@ -1,0 +1,28 @@
+@charset "UTF-8";
+
+@import "./global";
+
+body {
+  @include flex(row, stretch, flex-start);
+}
+
+#main {
+  background-image: url("../images/index.unsigned/main-background.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 1rem;
+  margin: 1rem;
+  overflow: hidden;
+  position: relative;
+
+  > .content {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(0.5rem);
+    background-color: #212121a0;
+    position: absolute;
+  }
+}

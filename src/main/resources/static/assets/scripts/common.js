@@ -112,7 +112,10 @@ class Loading{
         Loading.$element?.hide();
     }
 
-    static show(){
+    /**
+     * @param{number} delay
+     */
+    static show(delay= 50){
         if (Loading.$element == null){
             const $element = document.createElement('div');
             $element.classList.add('---loading');
@@ -127,6 +130,6 @@ class Loading{
             document.body.prepend($element);
             Loading.$element = $element;
         }
-        Loading.$element.show();
+        setTimeout(() => Loading.$element.show(), delay);
     }
 }

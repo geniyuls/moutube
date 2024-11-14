@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jykim.moutube.mappers.UserMapper">
+    <insert id="insertUser" parameterType="com.jykim.moutube.entities.UserEntity">
+        insert into `moutube`.`users` (email, password, nickname, contact, created_at, updated_at, deleted_at, is_admin, is_suspended, is_verified)
+        values (#{email}, #{password}, #{nickname}, #{contact}, #{createdAt}, #{updatedAt}, #{deletedAt}, #{isAdmin}, #{isSuspended}, #{isVerified})
+    </insert>
+    <select id="selectUserByEmail" resultType="com.jykim.moutube.entities.UserEntity">
+        select `email` as email,
+               `password` as password,
+               `nickname` as nickname,
+               `contact` as contact,
+               `created_at` as createdAt,
+               `updated_at` as updatedAt,
+               `deleted_at` as deletedAt,
+               `is_admin` as isAdmin,
+               `is_suspended` as isSuspended,
+               `is_verified` as isCerified
+        from `moutube`.`users`
+        where `email` = #{email}
+        limit 1
+    </select>
+    <select id="selectUserByNickname" resultType="com.jykim.moutube.entities.UserEntity">
+        select `email` as email,
+               `password` as password,
+               `nickname` as nickname,
+               `contact` as contact,
+               `created_at` as createdAt,
+               `updated_at` as updatedAt,
+               `deleted_at` as deletedAt,
+               `is_admin` as isAdmin,
+               `is_suspended` as isSuspended,
+               `is_verified` as isCerified
+        from `moutube`.`users`
+        where `nickname` = #{nickname}
+        limit 1
+    </select>
+    <select id="selectUserByContact" resultType="com.jykim.moutube.entities.UserEntity">
+        select `email` as email,
+               `password` as password,
+               `nickname` as nickname,
+               `contact` as contact,
+               `created_at` as createdAt,
+               `updated_at` as updatedAt,
+               `deleted_at` as deletedAt,
+               `is_admin` as isAdmin,
+               `is_suspended` as isSuspended,
+               `is_verified` as isCerified
+        from `moutube`.`users`
+        where `contact` = #{contact}
+        limit 1
+    </select>
+</mapper>
